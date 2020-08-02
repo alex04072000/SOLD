@@ -53,13 +53,14 @@
 						<div class="form-group">
 							<label for="dataset-select">Dataset:&nbsp;</label>
 							<select class="form-control" id="dataset-select" oninput="ChangeDataset();">
-								<option value="xue 6">[Xue et al. 2015]</option>
-								<option value="du 5">[Du et al. 2018]</option>
+								<option value="xue 4">[Xue et al. 2015]</option>
+								<option value="du 4">[Du et al. 2018]</option>
+								<option value="huang 6">[Liu et al. 2020]</option>
 							</select>
 						</div>
 						&emsp;
 						<div class="form-group">
-							<label for="frame-idx-input">Frame: <span id="frame-idx">01</span> / <span id="frame-total">6</span>&nbsp;</label>
+							<label for="frame-idx-input">Frame: <span id="frame-idx">01</span> / <span id="frame-total">4</span>&nbsp;</label>
 							<span id="sequence_name" style="display:inline-block; font-weight:bold; width:100px;">: Fence1&nbsp;</span>
 							<div class="input-group">
 								<span class="input-group-btn">
@@ -78,7 +79,8 @@
 						<li role="presentation" id="tab0"><a href="javascript: void(0);" onclick="ClickInput();">Input</a></li>
 						<li role="presentation" id="tab1"><a href="javascript: void(0);" onclick="ChangeCurrentView(1);">[Xue et al. 2015]</a></li>
 						<li role="presentation" id="tab2" class="disabled"><a href="javascript: void(0);" onclick="ChangeCurrentView(2);">[Du et al. 2018]</a></li>
-						<li role="presentation" id="tab3" class="active"><a href="javascript: void(0);" onclick="ChangeCurrentView(3);">Ours</a></li>
+						<li role="presentation" id="tab3"><a href="javascript: void(0);" onclick="ChangeCurrentView(3);">[Liu et al. 2020]</a></li>
+						<li role="presentation" id="tab4" class="active"><a href="javascript: void(0);" onclick="ChangeCurrentView(4);">Ours</a></li>
 					</ul>
 				</div>
 				<center><h5 id="dataset_link"><a href="https://sites.google.com/site/obstructionfreephotography/">[Xue et al. 2015] dataset link</a></h5></center>
@@ -93,13 +95,13 @@
 			<div class="row" style="margin-top: 2em;" id='image_slider'>
 			  <div class="large-6 columns">
 				<div class="twentytwenty-container" id='twenty_container'>
-						<img src="../results/fence/Xue et al/00001_Input.png" id="showoff-img-I"/>
-						<img src="../results/fence/Xue et al/00001_Background_Ours.png" id="showoff-img-B"/>
+						<img src="../results/fence/Xue et al/00000_Input.png" id="showoff-img-I"/>
+						<img src="../results/fence/Xue et al/00000_Background_Ours.png" id="showoff-img-B"/>
 				</div>
 				<h5><strong><center>Reconstructed background</center></strong></h5>
 			  </div>
 			  <div class="large-6 columns">
-				<img src="../results/fence/Xue et al/00001_Occlusion_Ours.png" id="showoff-img-R"/>
+				<img src="../results/fence/Xue et al/00000_Occlusion_Ours.png" id="showoff-img-R"/>
 				<h5><strong><center>Reconstructed obstruction</center></strong></h5>
 			  </div>
 			</div>
@@ -107,7 +109,7 @@
 			<div class="row" style="margin-top: 2em; display:none" id='video_canvas'>
 			  <div class="large-6 columns">
 			    <video id="input_video" width="425" controls="controls" onended="this.currentTime = 0; this.play();">
-					<source src="../results/fence/Xue et al/00001_Input.mp4" type="video/mp4"/>
+					<source src="../results/fence/Xue et al/00000_Input.mp4" type="video/mp4"/>
 				</video>
 				<h5><strong><center>Input sequence</center></strong></h5>
 			    <!-- <img src="../results/fence/Input/00000_I2.jpg" id="showoff-video"/> -->
@@ -160,12 +162,13 @@
 	</style>
 
 	<script type="text/javascript">
-	var currentViewList = ["input", "0", "1", "2"];
-	var currentView = "2";
-	var image_nameing_0 = ['Hanoi', 'Fence1', 'Fence2', 'Rain', 'Text', 'Tiger'];
-	var image_nameing_1 = ['Fence1', 'Fence2', 'Fence3', 'Fence4', 'Fence5'];
-	var id_sfuffle_table_0 = [2, 3, 6, 1, 4, 5];
-	var id_sfuffle_table_1 = [1, 2, 3, 5, 4];
+	var currentViewList = ["input", "0", "1", "2", "3"];
+	var currentView = "3";
+	var image_nameing_0 = ['Hanoi', 'Fence1', 'Fence2', 'Tiger'];
+	var image_nameing_1 = ['Fence1', 'Fence2', 'Fence3', 'Fence4'];
+	var id_sfuffle_table_0 = [1, 3, 4, 2];
+	var id_sfuffle_table_1 = [1, 2, 3, 4];
+	var id_sfuffle_table_2 = [1, 2, 3, 4, 5, 6];
 
 	function ChangeDataset(){
 
@@ -177,6 +180,10 @@
 		if(dataset=='du'){
 			document.getElementById("sequence_name").innerHTML = ": Blue&nbsp;";
 			document.getElementById("dataset_link").innerHTML = "Dataset provided by authors of [Du et al. 2018].";
+		}
+		if(dataset=='huang'){
+			document.getElementById("sequence_name").innerHTML = "&nbsp;";
+			document.getElementById("dataset_link").innerHTML = "<a href='https://github.com/alex04072000/ObstructionRemoval'>[Liu et al. 2020] dataset link</a>";
 		}
 		
 		var frame_total = parseInt(document.getElementById("dataset-select").value.split(" ")[1]);
@@ -200,6 +207,11 @@
 			$('#tab2').removeClass("disabled");
 			id_sfuffle_table = id_sfuffle_table_1;
 		}
+		if(dataset=="huang"){
+			$('#tab1').addClass("disabled");
+			$('#tab2').addClass("disabled");
+			id_sfuffle_table = id_sfuffle_table_2;
+		}
 		
 		var frame_idx = parseInt(document.getElementById("frame-idx-input").value);
 		var start_idx = 0;
@@ -215,6 +227,7 @@
 		var dataset_folder = "";
 		if(dataset=='xue'){dataset_folder = "Xue et al";}
 		if(dataset=='du'){dataset_folder = "Du et al";}
+		if(dataset=='huang'){dataset_folder = "Huang and Liu";}
 		
 		<!-- $("#showoff-img-I").attr("src", "../results/fence/Input/"+("00000" + parseInt(start_idx+id_sfuffle_table[frame_idx-1]-1)).slice(-5)+"_I2.jpg").on('load', function() { -->
 		$("#showoff-img-I").attr("src", "../results/fence/"+dataset_folder+"/"+("00000" + parseInt(id_sfuffle_table[frame_idx-1]-1)).slice(-5)+"_Input.png").on('load', function() {
@@ -236,7 +249,8 @@
 		var method_new = "Ours";
 		if(currentView=='0'){method_new = "Xue2015";}
 		if(currentView=='1'){method_new = "Du2018";}
-		if(currentView=='2'){method_new = "Ours";}
+		if(currentView=='2'){method_new = "Liu2020";}
+		if(currentView=='3'){method_new = "Ours";}
 		
 		<!-- document.getElementById("showoff-img-I").src = "../results/fence/Input/"+("00000" + parseInt(start_idx+id_sfuffle_table[frame_idx-1]-1)).slice(-5)+"_I2.jpg"; -->
 		document.getElementById("showoff-img-B").src = "../results/fence/"+dataset_folder+"/"+("00000" + parseInt(id_sfuffle_table[frame_idx-1]-1)).slice(-5)+"_Background_"+method_new+".png";
@@ -298,11 +312,17 @@
 	}
 
 	function ChangeCurrentView(idx){
-		if(idx == 3){
+		if(idx == 4){
 			document.getElementById("method_author").innerHTML = "&nbsp";
 			document.getElementById("method_title").innerHTML = "&nbsp";
 			document.getElementById("method_publication").innerHTML = "&nbsp";
 			document.getElementById("code_link").innerHTML = "&nbsp";
+		}
+		if(idx == 3){
+			document.getElementById("method_author").innerHTML = "Yu-Lun Liu, Wei-Sheng Lai, Ming-Hsuan Yang, Yung-Yu Chuang, and Jia-Bin Huang";
+			document.getElementById("method_title").innerHTML = "Learning to See Through Obstructions";
+			document.getElementById("method_publication").innerHTML = "Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2020";
+			document.getElementById("code_link").innerHTML = "<a href='https://github.com/alex04072000/ObstructionRemoval'>[Liu et al. 2020] code link</a>";
 		}
 		if(idx == 1){
 			document.getElementById("method_author").innerHTML = "Tianfan Xue, Michael Rubinstein, Ce Liu, and William T. Freeman";

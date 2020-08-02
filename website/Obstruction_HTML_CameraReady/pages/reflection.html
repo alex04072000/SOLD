@@ -57,6 +57,7 @@
 								<option value="li 8">[Li and Brown 2013]</option>
 								<option value="guo 3">[Guo et al. 2014]</option>
 								<option value="sinha 4">[Kopf et al. 2013]</option>
+								<option value="huang 29">[Liu et al. 2020]</option>
 							</select>
 						</div>
 						&emsp;
@@ -78,18 +79,17 @@
 					<h5><strong>Method:&nbsp;</strong></h5>
 					<ul class="nav nav-pills" id="current-view-ul">
 						<li role="presentation" id="tab0"><a href="javascript: void(0);" onclick="ClickInput();">Input</a></li>
-						<li role="presentation" id="tab1"><a href="javascript: void(0);" onclick="ChangeCurrentView(1);">[Fan et al. 2017]</a></li>
-						<li role="presentation" id="tab2"><a href="javascript: void(0);" onclick="ChangeCurrentView(2);">[Zhang et al. 2018]</a></li>
-						<li role="presentation" id="tab3"><a href="javascript: void(0);" onclick="ChangeCurrentView(3);">[Yang et al. 2018]</a></li>
-						<li role="presentation" id="tab4"><a href="javascript: void(0);" onclick="ChangeCurrentView(4);">[Wei et al. 2019]</a></li>
-						<li role="presentation" id="tab5"><a href="javascript: void(0);" onclick="ChangeCurrentView(5);">[Jin et al. 2018]</a></li>
-						<li role="presentation" id="tab6"><a href="javascript: void(0);" onclick="ChangeCurrentView(6);">[Gandelsman et al. 2019]</a></li>
-						<li role="presentation" id="tab7" class="disabled"><a href="javascript: void(0);" onclick="ChangeCurrentView(7);">[Sinha et al. 2012]</a></li>
-						<li role="presentation" id="tab8"><a href="javascript: void(0);" onclick="ChangeCurrentView(8);">[Li and Brown 2013]</a></li>
-						<li role="presentation" id="tab9"><a href="javascript: void(0);" onclick="ChangeCurrentView(9);">[Guo et al. 2014]</a></li>
-						<li role="presentation" id="tab10"><a href="javascript: void(0);" onclick="ChangeCurrentView(10);">[Xue et al. 2015]</a></li>
-						<li role="presentation" id="tab11"><a href="javascript: void(0);" onclick="ChangeCurrentView(11);">[Alayrac et al. 2019]</a></li>
-						<li role="presentation" id="tab12" class="active"><a href="javascript: void(0);" onclick="ChangeCurrentView(12);">Ours</a></li>
+						<li role="presentation" id="tab1"><a href="javascript: void(0);" onclick="ChangeCurrentView(1);">[Zhang et al. 2018]</a></li>
+						<li role="presentation" id="tab2"><a href="javascript: void(0);" onclick="ChangeCurrentView(2);">[Yang et al. 2018]</a></li>
+						<li role="presentation" id="tab3"><a href="javascript: void(0);" onclick="ChangeCurrentView(3);">[Wei et al. 2019]</a></li>
+						<li role="presentation" id="tab4"><a href="javascript: void(0);" onclick="ChangeCurrentView(4);">[Jin et al. 2018]</a></li>
+						<li role="presentation" id="tab5" class="disabled"><a href="javascript: void(0);" onclick="ChangeCurrentView(5);">[Sinha et al. 2012]</a></li>
+						<li role="presentation" id="tab6"><a href="javascript: void(0);" onclick="ChangeCurrentView(6);">[Li and Brown 2013]</a></li>
+						<li role="presentation" id="tab7"><a href="javascript: void(0);" onclick="ChangeCurrentView(7);">[Guo et al. 2014]</a></li>
+						<li role="presentation" id="tab8"><a href="javascript: void(0);" onclick="ChangeCurrentView(8);">[Xue et al. 2015]</a></li>
+						<li role="presentation" id="tab9"><a href="javascript: void(0);" onclick="ChangeCurrentView(9);">[Alayrac et al. 2019]</a></li>
+						<li role="presentation" id="tab10"><a href="javascript: void(0);" onclick="ChangeCurrentView(10);">[Liu et al. 2020]</a></li>
+						<li role="presentation" id="tab11" class="active"><a href="javascript: void(0);" onclick="ChangeCurrentView(11);">Ours</a></li>
 					</ul>
 				</div>
 				<center><h5 id="dataset_link"><a href="https://sites.google.com/site/obstructionfreephotography/">[Xue et al. 2015] dataset link</a></h5></center>
@@ -172,16 +172,19 @@
 	</style>
 
 	<script type="text/javascript">
-	var currentViewList = ["input", "single0", "single1", "single2", "single3", "single4", "single5", "multi0", "multi1", "multi2", "multi3", "multi4", "multi5"];
-	var currentView = "multi5";
+	var currentViewList = ["input", "single1", "single2", "single3", "single4", "multi0", "multi1", "multi2", "multi3", "multi4", "multi5", "multi6"];
+	var currentView = "multi7";
 	var image_nameing_0 = ['Stone', 'Toy', 'Bus_station', 'Dorm1', 'Dusk2', 'Dusk', 'Firealarm', 'Gallery', 'Night1', 'Night3'];
 	var image_nameing_1 = ['Blue', 'Red1', 'Red2', 'Yellow', 'Bag1', 'Oscar', 'Bag2', 'Bag3'];
 	var image_nameing_2 = ['Face', 'Art', 'Photos'];
 	var image_nameing_3 = ['Guitarist', 'Glass', 'Shop', 'Statue'];
+	var image_nameing_4 = ["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""];
 	var id_sfuffle_table_0 = [2, 3, 4, 6, 9, 1, 7, 10, 5, 8];
-	var id_sfuffle_table_1 = [5, 6, 7, 8, 1, 3, 2, 4];
+	var id_sfuffle_table_1 = [1, 5, 6, 7, 8, 3, 2, 4];
 	var id_sfuffle_table_2 = [1, 2, 3];
 	var id_sfuffle_table_3 = [1, 4, 2, 3];
+	var id_sfuffle_table_4 = [12, 1, 3, 5, 6, 8, 11, 15, 18, 19, 20, 22, 23, 28, 29, 34, 35, 36, 39, 42, 43, 46, 51, 52, 53, 4, 10, 16, 17];
+	<!-- var id_sfuffle_table_4 = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71]; -->
 
 	function ChangeDataset(){
 
@@ -203,6 +206,10 @@
 			document.getElementById("sequence_name").innerHTML = ": Guitarist&nbsp;";
 			document.getElementById("dataset_link").innerHTML = "<a href='http://johanneskopf.de/publications/gdibr/supplementary/index.html'>[Kopf et al. 2013] dataset link</a>";
 		}
+		if(dataset=='huang'){
+			document.getElementById("sequence_name").innerHTML = "&nbsp;";
+			document.getElementById("dataset_link").innerHTML = "<a href='https://github.com/alex04072000/ObstructionRemoval'>[Liu et al. 2020] dataset link</a>";
+		}
 		
 		var frame_total = parseInt(document.getElementById("dataset-select").value.split(" ")[1]);
 		document.getElementById("frame-total").innerHTML = frame_total;
@@ -216,24 +223,29 @@
 		var dataset = document.getElementById("dataset-select").value.split(" ")[0];
 		var id_sfuffle_table = id_sfuffle_table_0;
 		if(dataset=="xue"){
-			$('#tab7').addClass("disabled");
-			$('#tab10').removeClass("disabled");
+			$('#tab5').addClass("disabled");
+			$('#tab8').removeClass("disabled");
 			id_sfuffle_table = id_sfuffle_table_0;
 		}
 		if(dataset=="li"){
-			$('#tab7').addClass("disabled");
-			$('#tab10').addClass("disabled");
+			$('#tab5').addClass("disabled");
+			$('#tab8').addClass("disabled");
 			id_sfuffle_table = id_sfuffle_table_1;
 		}
 		if(dataset=="guo"){
-			$('#tab7').addClass("disabled");
-			$('#tab10').addClass("disabled");
+			$('#tab5').addClass("disabled");
+			$('#tab8').addClass("disabled");
 			id_sfuffle_table = id_sfuffle_table_2;
 		}
 		if(dataset=="sinha"){
-			$('#tab7').removeClass("disabled");
-			$('#tab10').addClass("disabled");
+			$('#tab5').removeClass("disabled");
+			$('#tab8').addClass("disabled");
 			id_sfuffle_table = id_sfuffle_table_3;
+		}
+		if(dataset=="huang"){
+			$('#tab5').removeClass("disabled");
+			$('#tab8').addClass("disabled");
+			id_sfuffle_table = id_sfuffle_table_4;
 		}
 		
 		var frame_idx = parseInt(document.getElementById("frame-idx-input").value);
@@ -248,6 +260,7 @@
 		if(dataset=='li'){image_nameing = image_nameing_1;}
 		if(dataset=='guo'){image_nameing = image_nameing_2;}
 		if(dataset=='sinha'){image_nameing = image_nameing_3;}
+		if(dataset=='huang'){image_nameing = image_nameing_4;}
 		document.getElementById("sequence_name").innerHTML = ": "+image_nameing[id_sfuffle_table[frame_idx-1]-1]+"&nbsp;";
 		<!-- document.getElementById("showoff-img").src = "img/showoff/" + dataset + "/" + ("0000" + parseInt(frame_idx - 1)).slice(-4) + "/" + currentView + ".jpg"; -->
 		
@@ -256,6 +269,7 @@
 		if(dataset=='li'){dataset_folder = "Li and Brown";}
 		if(dataset=='guo'){dataset_folder = "Guo et al";}
 		if(dataset=='sinha'){dataset_folder = "Kopf et al";}
+		if(dataset=='huang'){dataset_folder = "Huang and Liu";}
 		
 		$("#showoff-img-I").attr("src", "../results/reflection/"+dataset_folder+"/"+("00000" + parseInt(id_sfuffle_table[frame_idx-1]-1)).slice(-5)+"_Input.png").on('load', function() {
 		  console.log($("#showoff-img-I").height());
@@ -285,7 +299,8 @@
 		if(currentView=='multi2'){method_new = "Guo2014";}
 		if(currentView=='multi3'){method_new = "Xue2015";}
 		if(currentView=='multi4'){method_new = "Alayrac2019";}
-		if(currentView=='multi5'){method_new = "Ours";}
+		if(currentView=='multi5'){method_new = "Liu2020";}
+		if(currentView=='multi6'){method_new = "Ours";}
 		
 		<!-- document.getElementById("showoff-img-I").src = "../results/reflection/Input/"+("00000" + parseInt(start_idx+id_sfuffle_table[frame_idx-1]-1)).slice(-5)+"_I2.jpg"; -->
 		document.getElementById("showoff-img-B").src = "../results/reflection/"+dataset_folder+"/"+("00000" + parseInt(id_sfuffle_table[frame_idx-1]-1)).slice(-5)+"_Background_"+method_new+".png";
@@ -345,84 +360,77 @@
 	}
 
 	function ChangeCurrentView(idx){
-		if(idx == 12){
+		if(idx == 11){
 			document.getElementById("method_author").innerHTML = "&nbsp";
 			document.getElementById("method_title").innerHTML = "&nbsp";
 			document.getElementById("method_publication").innerHTML = "&nbsp";
 			document.getElementById("method_remarks").innerHTML = "Remarks: Multiple frames as input.";
 			document.getElementById("code_link").innerHTML = "&nbsp";
 		}
-		if(idx == 1){
-			document.getElementById("method_author").innerHTML = "Qingnan Fan, Jiaolong Yang, Gang Hua, Baoquan Chen, and David Wipf";
-			document.getElementById("method_title").innerHTML = "A Generic Deep Architecture for Single Image Reflection Removal and Image Smoothing";
-			document.getElementById("method_publication").innerHTML = "IEEE International Conference on Computer Vision (ICCV), 2017";
-			document.getElementById("method_remarks").innerHTML = "Remarks: Single frame as input.";
-			document.getElementById("code_link").innerHTML = "<a href='https://github.com/fqnchina/CEILNet'>[Fan et al. 2017] code link</a>";
+		if(idx == 10){
+			document.getElementById("method_author").innerHTML = "Yu-Lun Liu, Wei-Sheng Lai, Ming-Hsuan Yang, Yung-Yu Chuang, and Jia-Bin Huang";
+			document.getElementById("method_title").innerHTML = "Learning to See Through Obstructions";
+			document.getElementById("method_publication").innerHTML = "Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2020";
+			document.getElementById("method_remarks").innerHTML = "Remarks: Multiple frames as input.";
+			document.getElementById("code_link").innerHTML = "<a href='https://github.com/alex04072000/ObstructionRemoval'>[Liu et al. 2020] code link</a>";
 		}
-		if(idx == 2){
+		if(idx == 1){
 			document.getElementById("method_author").innerHTML = "Xuaner Zhang, Ren Ng, and Qifeng Chen";
 			document.getElementById("method_title").innerHTML = "Single Image Reflection Separation with Perceptual Losses";
 			document.getElementById("method_publication").innerHTML = "IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2018";
 			document.getElementById("method_remarks").innerHTML = "Remarks: Single frame as input.";
 			document.getElementById("code_link").innerHTML = "<a href='https://github.com/ceciliavision/perceptual-reflection-removal'>[Zhang et al. 2018] code link</a>";
 		}
-		if(idx == 3){
+		if(idx == 2){
 			document.getElementById("method_author").innerHTML = "Jie Yang, Dong Gong, Lingqiao Liu, and Qinfeng Shi";
 			document.getElementById("method_title").innerHTML = "Seeing deeply and bidirectionally: a deep learning approach for single image reflection removal";
 			document.getElementById("method_publication").innerHTML = "Proceedings of the European Conference on Computer Vision (ECCV), 2018";
 			document.getElementById("method_remarks").innerHTML = "Remarks: Single frame as input.";
 			document.getElementById("code_link").innerHTML = "<a href='https://github.com/yangj1e/bdn-refremv'>[Yang et al. 2018] code link</a>";
 		}
-		if(idx == 4){
+		if(idx == 3){
 			document.getElementById("method_author").innerHTML = "Kaixuan Wei, Jiaolong Yang, Ying Fu, Wipf David, and Hua Huang";
 			document.getElementById("method_title").innerHTML = "Single Image Reflection Removal Exploiting Misaligned Training Data and Network Enhancements";
 			document.getElementById("method_publication").innerHTML = "IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2019";
 			document.getElementById("method_remarks").innerHTML = "Remarks: Single frame as input.";
 			document.getElementById("code_link").innerHTML = "<a href='https://github.com/Vandermode/ERRNet'>[Wei et al. 2019] code link</a>";
 		}
-		if(idx == 5){
+		if(idx == 4){
 			document.getElementById("method_author").innerHTML = "Meiguang Jin, Sabine Süsstrunk, and Paolo Favaro";
 			document.getElementById("method_title").innerHTML = "Learning to See through Reflections";
 			document.getElementById("method_publication").innerHTML = "IEEE International Conference on Computational Photography (ICCP), 2018";
 			document.getElementById("method_remarks").innerHTML = "Remarks: Single frame as input.";
 			document.getElementById("code_link").innerHTML = "<a href='https://github.com/MeiguangJin/Learning-to-See-through-Reflections'>[Jin et al. 2018] code link</a>";
 		}
-		if(idx == 6){
-			document.getElementById("method_author").innerHTML = "Yossi Gandelsman, Assaf Shocher, and Michal Irani";
-			document.getElementById("method_title").innerHTML = '"Double-DIP": Unsupervised Image Decomposition via Coupled Deep-Image-Priors';
-			document.getElementById("method_publication").innerHTML = "Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2019";
-			document.getElementById("method_remarks").innerHTML = "Remarks: Single frame as input.";
-			document.getElementById("code_link").innerHTML = "<a href='https://github.com/yossigandelsman/DoubleDIP'>[Gandelsman et al. 2019] code link</a>";
-		}
-		if(idx == 7){
+		if(idx == 5){
 			document.getElementById("method_author").innerHTML = "Sudipta N. Sinha, Johannes Kopf, Michael Goesele, Daniel Scharstein, and Richard Szeliski";
 			document.getElementById("method_title").innerHTML = "Image-based rendering for scenes with reflections";
 			document.getElementById("method_publication").innerHTML = "ACM Transactions on Graphics (Proc. SIGGRAPH), 2012";
 			document.getElementById("method_remarks").innerHTML = "Remarks: Multiple frames as input.";
 			document.getElementById("code_link").innerHTML = "<a href='https://snsinha.github.io/proj/ReflectionsIBR/supplementary/index.html'>[Sinha et al. 2012] results link</a>";
 		}
-		if(idx == 8){
+		if(idx == 6){
 			document.getElementById("method_author").innerHTML = "Yu Li, and Michael S. Brown";
 			document.getElementById("method_title").innerHTML = "Exploiting reflection change for automatic reflection removal";
 			document.getElementById("method_publication").innerHTML = "Proceedings of the IEEE International Conference on Computer Vision (ICCV), 2013";
 			document.getElementById("method_remarks").innerHTML = "Remarks: Multiple frames as input.";
 			document.getElementById("code_link").innerHTML = "<a href='http://yu-li.github.io/'>[Li and Brown 2013] code link</a>";
 		}
-		if(idx == 9){
+		if(idx == 7){
 			document.getElementById("method_author").innerHTML = "Xiaojie Guo, Xiaochun Cao, and Yi Ma";
 			document.getElementById("method_title").innerHTML = "Robust separation of reflection from multiple images";
 			document.getElementById("method_publication").innerHTML = "Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2014";
 			document.getElementById("method_remarks").innerHTML = "Remarks: Multiple frames as input.";
 			document.getElementById("code_link").innerHTML = "<a href='https://sites.google.com/view/xjguo/sid'>[Guo et al. 2014] code link</a>";
 		}
-		if(idx == 10){
+		if(idx == 8){
 			document.getElementById("method_author").innerHTML = "Tianfan Xue, Michael Rubinstein, Ce Liu, and William T. Freeman";
 			document.getElementById("method_title").innerHTML = "A Computational Approach for Obstruction-Free Photography";
 			document.getElementById("method_publication").innerHTML = "ACM Transactions on Graphics (Proc. SIGGRAPH), 2015";
 			document.getElementById("method_remarks").innerHTML = "Remarks: Multiple frames as input.";
 			document.getElementById("code_link").innerHTML = "<a href='https://sites.google.com/site/obstructionfreephotography/'>[Xue et al. 2015] results link</a>";
 		}
-		if(idx == 11){
+		if(idx == 9){
 			document.getElementById("method_author").innerHTML = "Jean-Baptiste Alayrac, Joao Carreira, and Andrew Zisserman";
 			document.getElementById("method_title").innerHTML = "The Visual Centrifuge: Model-Free Layered Video Representations";
 			document.getElementById("method_publication").innerHTML = "Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2019";
