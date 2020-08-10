@@ -1,6 +1,6 @@
 # See Obstruction Layer Decomposition (SOLD)
 
-<img src='./teaser.png' width=1000>
+<img src='./teaser.jpg' width=1000>
 
 We present a learning-based approach for removing unwanted obstructions, such as window reflections, fence occlusions, or raindrops, from a short sequence of images captured by a moving camera. Our method leverages motion differences between the background and obstructing elements to recover both layers. Specifically, we alternate between estimating dense optical flow fields of the two layers and reconstructing each layer from the flow-warped images via a deep convolutional neural network. This learning-based layer reconstruction module facilitates accommodating potential errors in the flow estimation and brittle assumptions, such as brightness consistency. We show that the proposed approach learned from synthetically generated data performs well to real images. Experimental results on numerous challenging scenarios of reflection and fence removal demonstrate the effectiveness of the proposed method.
 
