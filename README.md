@@ -1,4 +1,4 @@
-# See Obstruction Layer Decomposition (SOLD)
+# Seeing through Obstruction with Layer Decomposition (SOLD)
 
 <img src='./teaser.jpg' width=1000>
 
