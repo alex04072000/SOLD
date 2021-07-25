@@ -7,7 +7,7 @@
 <!--[if (gte IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
 <head>
 	<meta charset="UTF-8">
-	<title>Learning to See Through Obstructions - Supplementary Material</title>
+	<title>Learning to See Through Obstructions with Layered Decomposition - Supplementary Material</title>
 	<link href="css/foundation.css" rel="stylesheet" type="text/css" />
 	<link href="css/twentytwenty.css" rel="stylesheet" type="text/css" />
 	<!-- jQuery -->
@@ -26,7 +26,7 @@
 		<div class="row">
 			<div class="col-xs-12 text-center">
 				<br>
-				<h1>Learning to See Through Obstructions</h1>
+				<h1>Learning to See Through Obstructions with Layered Decomposition</h1>
 				<br>
 			</div>
 		</div>
@@ -112,6 +112,24 @@
 				  <div class="large-4 columns">
 					<img src="../results/failure_cases/00001_Reflection_Ours.png" id="showoff-img-R"/>
 					<h5><strong><center>Reconstructed reflection</center></strong></h5>
+				  </div>
+				</div>
+				
+				<h4>Severe adherent raindrops</h4>
+				<div class="row" style="margin-top: 2em" id='output_canvas'>
+				  <div class="large-6 columns">
+					<!-- <video id="output_video_B" width="425" controls="controls" onended="this.currentTime = 0; this.play();"> -->
+					
+					<!-- <video id="output_video" width="875" controls="controls" onended="this.currentTime = 0; this.play();" autoplay="" src="../results/video_full_reflection/Xue et al/00009_Ours_ffmpeg.mp4"> -->
+					
+					<video id="output_video" width="410" onended="this.currentTime = 0; this.play();" controls autoplay muted>
+						<source src="../results/failure_cases/00004_Input.mp4" type="video/mp4"/>
+					</video>
+					<h5><strong><center>Input sequence</center></strong></h5>
+				  </div>
+				  <div class="large-6 columns">
+					<img src="../results/failure_cases/00004_Background_Ours.png" id="showoff-img-B"/>
+					<h5><strong><center>Reconstructed background</center></strong></h5>
 				  </div>
 				</div>
 				

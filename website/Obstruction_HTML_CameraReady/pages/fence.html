@@ -7,7 +7,7 @@
 <!--[if (gte IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
 <head>
 	<meta charset="UTF-8">
-	<title>Learning to See Through Obstructions - Supplementary Material</title>
+	<title>Learning to See Through Obstructions with Layered Decomposition - Supplementary Material</title>
 	<link href="css/foundation.css" rel="stylesheet" type="text/css" />
 	<link href="css/twentytwenty.css" rel="stylesheet" type="text/css" />
 	<!-- jQuery -->
@@ -26,7 +26,7 @@
 		<div class="row">
 			<div class="col-xs-12 text-center">
 				<br>
-				<h1>Learning to See Through Obstructions</h1>
+				<h1>Learning to See Through Obstructions with Layered Decomposition</h1>
 				<br>
 			</div>
 		</div>
@@ -55,13 +55,13 @@
 							<select class="form-control" id="dataset-select" oninput="ChangeDataset();">
 								<option value="xue 4">[Xue et al. 2015]</option>
 								<option value="du 4">[Du et al. 2018]</option>
-								<option value="huang 6">[Liu et al. 2020]</option>
+								<option value="huang 9">[Liu et al. 2020]</option>
 							</select>
 						</div>
 						&emsp;
 						<div class="form-group">
 							<label for="frame-idx-input">Frame: <span id="frame-idx">01</span> / <span id="frame-total">4</span>&nbsp;</label>
-							<span id="sequence_name" style="display:inline-block; font-weight:bold; width:100px;">: Hanoi&nbsp;</span>
+							<span id="sequence_name" style="display:inline-block; font-weight:bold; width:100px;">: Fence1&nbsp;</span>
 							<div class="input-group">
 								<span class="input-group-btn">
 									<button class="btn btn-info" type="button" onclick="PrevFrame();"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></button>
@@ -166,10 +166,9 @@
 	var currentView = "3";
 	var image_nameing_0 = ['Hanoi', 'Fence1', 'Fence2', 'Tiger'];
 	var image_nameing_1 = ['Fence1', 'Fence2', 'Fence3', 'Fence4'];
-	var image_nameing_2 = ['', '', '', '', '', ''];
 	var id_sfuffle_table_0 = [1, 3, 4, 2];
 	var id_sfuffle_table_1 = [1, 2, 3, 4];
-	var id_sfuffle_table_2 = [1, 2, 3, 4, 5, 6];
+	var id_sfuffle_table_2 = [7, 8, 9, 1, 2, 3, 4, 5, 6];
 
 	function ChangeDataset(){
 
@@ -222,7 +221,6 @@
 		var image_nameing = ['Stone', 'Toy', 'Bus_station', 'Dorm1', 'Dusk2', 'Dusk', 'Firealarm', 'Gallery', 'Night1', 'Night3'];
 		if(dataset=='xue'){image_nameing = image_nameing_0;}
 		if(dataset=='du'){image_nameing = image_nameing_1;}
-		if(dataset=='huang'){image_nameing = image_nameing_2;}
 		document.getElementById("sequence_name").innerHTML = ": "+image_nameing[id_sfuffle_table[frame_idx-1]-1]+"&nbsp;";
 		<!-- document.getElementById("showoff-img").src = "img/showoff/" + dataset + "/" + ("0000" + parseInt(frame_idx - 1)).slice(-4) + "/" + currentView + ".jpg"; -->
 
