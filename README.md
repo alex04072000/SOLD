@@ -44,6 +44,18 @@ CUDA_VISIBLEDEVICES=0 python3 run_reflection.py
 CUDA_VISIBLEDEVICES=0 python3 run_fence.py
 ```
 
+## Google Colab Demo
+https://colab.research.google.com/drive/1kCG5SJd3usgzi6Bx979KiaO_YTanNVVz?usp=sharing
+
+## Collected Controlled Sequences
+We collect six sequences with ground truth.
+* website/Obstruction_HTML_CameraReady/results/reflection/Huang and Liu/00071
+* website/Obstruction_HTML_CameraReady/results/reflection/Huang and Liu/00072
+* website/Obstruction_HTML_CameraReady/results/fence/Huang and Liu/00006
+* website/Obstruction_HTML_CameraReady/results/fence/Huang and Liu/00007
+* website/Obstruction_HTML_CameraReady/results/fence/Huang and Liu/00008
+* website/Obstruction_HTML_CameraReady/results/raindrop/Huang and Liu/00005
+
 ## Citation
 ```
 [1] Yu-Lun Liu, Wei-Sheng Lai, Ming-Hsuan Yang, Yung-Yu Chuang, and Jia-Bin Huang. Learning to See Through Obstructions with Layered Decomposition. arXiv, 2020
